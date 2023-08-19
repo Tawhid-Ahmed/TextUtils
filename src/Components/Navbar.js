@@ -8,7 +8,7 @@ export default function Navbar(props) {
         {/* <Link className="navbar-brand" to="/">
           {props.title}
         </Link> */}
-        <a className="navbar-brand" href="3">
+        <a className="navbar-brand" href="#">
           {props.title}
         </a>
         <button
