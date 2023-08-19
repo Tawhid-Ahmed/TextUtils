@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 export default function TextForm(props) {
+
     const handleUpClick=()=>{
         console.log("uppercase was click");
         //setText("you have clicked on handleUP Click")
@@ -56,17 +57,17 @@ export default function TextForm(props) {
         <div className="mb-3">
         <textarea className="form-control" id="myBox" value={text} onChange={handleChange} rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-2" onClick={handlelowClick}>Convert to LowerCase</button>
-        <button className="btn btn-primary mx-2" onClick={clearClick}>Clear</button>
-        <button className="btn btn-primary mx-2" onClick={reverseClick}>Reverse Text</button>
-        <button className="btn btn-primary mx-2" onClick={capitalClick}>Capitalize Word</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlelowClick}>Convert to LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={clearClick}>Clear</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={reverseClick}>Reverse Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={capitalClick}>Capitalize Word</button>
 
     </div>
     <div className={`container my-3 text-${props.mode==='light'?'dark':'light'}`}>
         <h1>Your Text Summary</h1>
-        <p>Number of words {text.trim().split(/\s+/).length} and number of characters{text.length}</p>
-        <p>{0.008 * text.split(" ").length} Minutes read </p>
+        <p>Number of words {text.split(" ").filter((element)=>{return element.length!==0}).length} and number of characters{text.length}</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read </p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter Something to preview"}</p>
     </div>
