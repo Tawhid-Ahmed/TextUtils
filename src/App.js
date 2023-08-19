@@ -1,6 +1,6 @@
 import "./App.css";
 import Alert from "./Components/Alert";
-import About from './Components/About';
+//import About from './Components/About';
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
 import React, { useState } from "react";
@@ -11,6 +11,7 @@ function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
+    
     setAlert({
       msg: message,
       type: type,
@@ -34,7 +35,7 @@ function App() {
   };
   return (
     <>
-    <Router>
+    {/* <Router> */}
       <Navbar
         title="TextUtils"
         About="About TextUtils"
@@ -44,25 +45,27 @@ function App() {
       <Alert Alert={alert} />
       <div className="container my-3">
          
-      <Routes>
-          <Route exact path="/" element={<TextForm
+      {/* <Routes>
+          <Route exact path="/" element={ */}
+          <TextForm
           header="Enter the text for analysis"
           mode={mode}
           showAlert={showAlert}
-        />}>
+        />
+        {/* }> */}
           
-          </Route>
+          {/* </Route>
           <Route exact path="/about" element={<About />}>
             
           </Route>
-        </Routes>
+        </Routes> */}
 
 
 
        
         {/* <About/> */}
       </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
